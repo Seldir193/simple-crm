@@ -9,6 +9,8 @@ import { User } from '../../models/user.class';
 import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { CommonModule } from '@angular/common';
+import { MatDialogRef } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-dialog-add-user',
@@ -25,6 +27,8 @@ export class DialogAddUserComponent implements OnInit {
   birthDate: Date = new Date();
   loading = false;
 
+  constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>){}
+
   ngOnInit(): void {
   
   }
@@ -36,10 +40,12 @@ export class DialogAddUserComponent implements OnInit {
     const usersCollection = collection(this.firestore, 'users');
     addDoc(usersCollection, this.user.toJSON()).then(() => {
       this.loading = false;
+      this.dialogRef.close();
       console.log('User added successfully');
     }).catch(error => {
       this.loading = false;
       console.error('Error adding user: ', error);
+      this.dialogRef.close();
     });
   }
 }
