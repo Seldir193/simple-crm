@@ -35,6 +35,7 @@ export class UserDetailComponent implements OnInit {
   }
 
   getUser() {
+    if(this.userId){
     const userDoc = doc(this.firestore, `users/${this.userId}`);
   
     docData(userDoc).subscribe((userData: any) => {
@@ -42,6 +43,7 @@ export class UserDetailComponent implements OnInit {
       this.user.id = this.userId; 
       console.log('USER', this.user);
     });
+  }
   }
 
   editAddress() {

@@ -32,6 +32,7 @@ export class DialogEditAddressComponent implements OnInit {
 
   saveUser() {
     this.loading = true;
+    if(this.userId){
     const userDoc = doc(this.firestore, `users/${this.userId}`); 
     updateDoc(userDoc, this.user.toJSON()) 
       .then(() => {
@@ -44,5 +45,6 @@ export class DialogEditAddressComponent implements OnInit {
         this.dialogRef.close(false); 
       });
   }
+}
 }
 

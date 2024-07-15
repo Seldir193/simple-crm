@@ -1,17 +1,17 @@
-
 <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 <div class="action">
- 
-  
   <h2 mat-dialog-title>Edit address</h2>
 
   <div mat-dialog-content>
-   
-
     <div>
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Street + House No.</mat-label>
-        <input [disabled]="loading"  [(ngModel)]="user.street" matInput placeholder="Placeholder" />
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.street"
+          matInput
+          placeholder="Placeholder"
+        />
         <!-- <mat-hint>Please enter a Name</mat-hint> -->
       </mat-form-field>
     </div>
@@ -19,21 +19,39 @@
     <div>
       <mat-form-field appearance="outline" class="mr-16">
         <mat-label>Zip code</mat-label>
-        <input [disabled]="loading"  [(ngModel)]="user.zipCode" matInput placeholder="Placeholder" />
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.zipCode"
+          matInput
+          placeholder="Placeholder"
+        />
         <!-- <mat-hint>Please enter a Name</mat-hint> -->
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>City</mat-label>
-        <input [disabled]="loading"  [(ngModel)]="user.city" matInput placeholder="Placeholder" />
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.city"
+          matInput
+          placeholder="Placeholder"
+        />
         <!-- <mat-hint>Please enter a Name</mat-hint> -->
       </mat-form-field>
     </div>
   </div>
 
   <div mat-dialog-actions>
-    <button [disabled]="loading" (click)="dialogRef.close();" mat-button>Cancel</button>
-    <button [disabled]="loading"  mat-button (click)="saveUser()" cdkFocusInitial>Save</button>
+    <button [disabled]="loading" (click)="dialogRef.close()" mat-button>
+      Cancel
+    </button>
+    <button
+      [disabled]="loading"
+      mat-button
+      (click)="saveUser()"
+      cdkFocusInitial
+    >
+      Save
+    </button>
   </div>
 </div>
-

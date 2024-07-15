@@ -21,8 +21,7 @@ import { Observable } from 'rxjs';
 export class AppComponent  {
   items$: Observable<any[]>;
   firestore: Firestore = inject(Firestore);
-  title = 'simple-crm';
-
+ 
   constructor(){
     const aCollection = collection(this.firestore, 'items')
     this.items$ = collectionData(aCollection);
